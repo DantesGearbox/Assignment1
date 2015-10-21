@@ -49,14 +49,15 @@ int filter(int data){
 		static int counter = 0; //A place in memory
 		static int array[30]; //30 places in memory
 		
-		mean = mean + ((newData - array[counter])/30);
+		mean = mean + ((newData - array[counter])/30); //Calculate mean
 		
-		array[counter] = newData;
+		array[counter] = newData; //Replace oldest data with new data
 		
-		counter++;
-		if(counter >= 30){
+		counter++; //Increment counter
+		if(counter >= 30){ //Reset counter if nescesary
 			counter = 0;
 		}
+		return mean;
 	}
 	
 
