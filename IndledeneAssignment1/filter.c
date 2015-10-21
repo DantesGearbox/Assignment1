@@ -45,11 +45,13 @@ int filter(int data){
 	result = temp/30;
 	
 	int MWI(int newData){
-		static int mean = 0; //A place in memory
+		static int sum = 0; //A place in memory
 		static int counter = 0; //A place in memory
 		static int array[30]; //30 places in memory
+		int result; // A register
 		
-		mean = mean + ((newData - array[counter])/30); //Calculate mean
+		sum = sum + newData - array[counter]; //Find new sum
+		result = sum/30; //Find mean
 		
 		array[counter] = newData; //Replace oldest data with new data
 		
@@ -57,7 +59,7 @@ int filter(int data){
 		if(counter >= 30){ //Reset counter if nescesary
 			counter = 0;
 		}
-		return mean;
+		return result;
 	}
 	
 
