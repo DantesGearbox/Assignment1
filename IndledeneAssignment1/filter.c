@@ -43,6 +43,22 @@ int filter(int data){
 		j--;
 	}
 	result = temp/30;
+	
+	int MWI(int newData){
+		static int mean = 0; //A place in memory
+		static int counter = 0; //A place in memory
+		static int array[30]; //30 places in memory
+		
+		mean = mean + ((newData - array[counter])/30);
+		
+		array[counter] = newData;
+		
+		counter++;
+		if(counter >= 30){
+			counter = 0;
+		}
+	}
+	
 
 	//Reset count, as it is static
 	count++;
