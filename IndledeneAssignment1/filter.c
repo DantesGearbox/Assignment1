@@ -51,7 +51,7 @@ int filter(int data){
 		int result; // A register
 		
 		sum = sum + newData - array[counter]; //Find new sum
-		result = sum/30; //Find mean
+		result = sum>>5; //Find mean (divide by 32)
 		
 		array[counter] = newData; //Replace oldest data with new data
 		
