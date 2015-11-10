@@ -47,7 +47,7 @@ int filter(int data){
 	int MWI(int newData){
 		static int sum = 0; //A place in memory
 		static int counter = 0; //A place in memory
-		static int array[30]; //30 places in memory
+		static int array[32]; //32 places in memory
 		int result; // A register
 		
 		sum = sum + newData - array[counter]; //Find new sum
@@ -56,7 +56,7 @@ int filter(int data){
 		array[counter] = newData; //Replace oldest data with new data
 		
 		counter++; //Increment counter
-		if(counter >= 30){ //Reset counter if nescesary
+		if(counter >= 32){ //Reset counter if nescesary
 			counter = 0;
 		}
 		return result;
